@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="regStyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body class="bckgd">
+<div class="allform">
+    <form action="/add" method="post" th:object="${animal}">
+        <h1 class="headerName">Dodaj nowego zwierzaka do adopcji</h1><br/>
+
+        <div class="form-group nameDiv">
+        <label for="nameID">Nazwa:</label>
+        <input class="form-control nameInput" id="nameID" placeholder="Wpisz Nazwę Zwierzaka" type="text" required th:field="*{name}"> <br/>
+        </div>
+
+        <div class="categoryDiv">
+        <label>Gatunek:</label>
+        <select class="custom-select" required th:field="*{category}">
+            <option class="defaultCategory" value="" selected data-default>Wybierz...</option>
+            <option value="Pies">Pies</option>
+            <option value="Kot">Kot</option>
+            <option value="Mysz">Mysz</option>
+        </select><br/><br/>
+        </div>
+
+        <div class="form-group nameDiv">
+        <label >Link do obrazka:</label>
+        <input class="form-control" placeholder="Wpisz Link Obrazka" required th:field="*{picture}"><br/>
+        </div>
+
+        <input class="btn btn-primary" type="submit" value="Dodaj" />
+
+
+    </form>
+</div>
+</body>
+</html>
